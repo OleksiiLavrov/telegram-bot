@@ -1,11 +1,11 @@
+import "dotenv/config";
 import { Telegraf, session } from "telegraf";
-import config from "config";
 import { ogg } from "../util/oggConverter.js";
 import { openai } from "../util/openAI.js";
 import { reset } from "../util/reset.js";
 import { INITIAL_SESSION } from "../consts/index.js";
 
-const bot = new Telegraf(config.get("TELEGRAM_TOKEN"));
+const bot = new Telegraf(process.env.TELEGRAM_TOKEN);
 
 bot.use(session());
 bot.command("new", async (ctx) => {

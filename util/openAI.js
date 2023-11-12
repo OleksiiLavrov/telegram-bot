@@ -1,5 +1,5 @@
+import "dotenv/config";
 import OpenAI from "openai";
-import config from "config";
 import { createReadStream } from "fs";
 import { removeFile } from "./removeFile.js";
 
@@ -35,4 +35,4 @@ class OpenAiAssistant {
    }
 }
 
-export const openai = new OpenAiAssistant(config.get("OPENAI_API_KEY"));
+export const openai = new OpenAiAssistant(process.env.OPENAI_API_KEY);
