@@ -8,7 +8,6 @@
       "yarn": "1.22.19"
    },
    "scripts": {
-      "build": "npx tsc",
       "start": "node ./src/main.js",
       "dev": "nodemon ./src/main.js"
    },
