@@ -62,7 +62,19 @@ bot.on("message", async (ctx) => {
    }
 });
 
-bot.launch();
+bot.launch({
+   webhook: {
+      // Public domain for webhook; e.g.: example.com
+      domain: process.env.WEBHOOK_DOMAIN,
+
+      // Port to listen on; e.g.: 8080
+      port: process.env.PORT,
+
+      // Optional secret to be sent back in a header for security.
+      // e.g.: `crypto.randomBytes(64).toString("hex")`
+      secretToken: randomAlphaNumericString,
+   },
+});
 
 process.once("SIGINT", () => bot.stop());
 process.once("SIGTERM", () => bot.stop());
